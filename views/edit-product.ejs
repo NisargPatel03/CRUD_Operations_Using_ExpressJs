@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/update-product-process/<%= mydata._id %>" method="post">
+        Name: <input type="text" value="<%= mydata.pname %>" name="txt1" placeholder="Enter Product Name" required>
+        Details: <input type="text" value="<%= mydata.pdetail %>" name="txt2" placeholder="Enter Product Details" required>
+        Price: <input type="text" value="<%= mydata.pprice %>" name="txt3" placeholder="Enter Product Price" required>
+        <input type="submit" >
+    </form>
+</body>
+</html>
