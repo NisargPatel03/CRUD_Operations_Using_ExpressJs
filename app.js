@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 const cors = require('cors')
+const fileupload = require('express-fileupload')
+const session = require('express-session')
 
 mongoose.connect('mongodb://127.0.0.1:27017/charusat')
 .then(()=> console.log("DB Connected"))
@@ -25,6 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileupload())
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
